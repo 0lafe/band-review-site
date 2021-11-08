@@ -66,7 +66,6 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    bcrypt (3.1.16)
     bindex (0.8.1)
     builder (3.2.4)
     capybara (3.35.3)
@@ -86,12 +85,6 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
-    devise (4.8.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -135,7 +128,6 @@ GEM
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    orm_adapter (0.5.0)
     pg (1.2.3)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -181,9 +173,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
-    responders (3.0.1)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -232,8 +221,6 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     valid_attribute (2.0.0)
-    warden (1.2.9)
-      rack (>= 2.0.9)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -256,7 +243,6 @@ PLATFORMS
 DEPENDENCIES
   capybara
   database_cleaner
-  devise
   dotenv-rails
   factory_bot
   foundation-rails (~> 6.5)
@@ -281,4 +267,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.27
+   2.2.29
