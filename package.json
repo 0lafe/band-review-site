@@ -1,0 +1,53 @@
+{
+  "name": "rails-staff-group-project",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "prop-types": "~15.6.0",
+    "react": "~16.8.0",
+    "react-dom": "~16.8.0",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-destructuring": "^7.6.0",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.13.10",
+    "babel-loader": "^8.0.6",
+    "react-router-dom": "5.0.0",
+    "redbox-react": "1.6.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.11.1",
+    "webpack-cli": "^2.0.10",
+    "babel-jest": "^24.9.0",
+    "fetch-mock": "~5.13.1",
+    "jest": "^24.9.0",
+    "@types/jest": "^24.9.0",
+    "enzyme": "~3.10.0",
+    "enzyme-adapter-react-16": "~1.14.0"
+  },
+  "scripts": {
+    "dev:client": "./bin/webpack-dev-server",
+    "test": "node_modules/.bin/jest",
+    "test:dev": "node_modules/.bin/jest --notify --watch"
+  },
+  "jest": {
+    "automock": false,
+    "roots": [
+      "spec/javascript",
+      "app/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript"
+    ],
+    "setupFiles": [
+      "./spec/javascript/support/enzyme.js"
+    ],
+    "testURL": "http://localhost/"
+  }
+}
