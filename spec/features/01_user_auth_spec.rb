@@ -49,4 +49,25 @@ feature 'user is able to' do
         
     end
 
+    scenario 'is unable to sign up with bad info' do
+        visit new_user_registration_path
+
+        click_button "Sign up"
+
+        expect(page).to have_content("Username can't be blank")
+        expect(page).to have_content("Email can't be blank")
+        expect(page).to have_content("Password can't be blank")
+        expect(page).to have_content("First name can't be blank")
+    end
+
+    scenario 'is unable to use an already existing username' do
+        visit new_user_registration_path
+
+        fill_in 'Username', with: test_user.username
+
+        click_button "Sign up"
+
+        expect(page).to have_content("Username has already been taken")
+    end
+
 end
