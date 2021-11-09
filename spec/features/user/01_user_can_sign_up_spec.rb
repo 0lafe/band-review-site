@@ -8,11 +8,9 @@ feature 'user is able to' do
         visit "/"
 
         click_link "Sign Up"
-        checks = ["Username", "Password", "Email"]
 
-        checks.each do |check|
-            expect(page).to have_content(check)
-        end
+        expect(page).to have_content("Sign up")
+
     end
 
     scenario 'is able to sign up' do
@@ -28,25 +26,6 @@ feature 'user is able to' do
         click_button "Sign up"
 
         expect(page).to have_content("signed up successfully")
-    end
-
-    scenario 'is able to sign in and out' do
-
-        visit "/"
-
-        click_link "Sign In"
-
-        fill_in 'Email', with: test_user.email
-        fill_in 'Password', with: test_user.password
-
-        click_button "Log in"
-
-        expect(page).to have_content("Signed in successfully")
-
-        click_link "Sign Out"
-
-        expect(page).to have_content("Signed out successfully")
-        
     end
 
     scenario 'is unable to sign up with bad info' do
