@@ -17,9 +17,7 @@ ActiveRecord::Schema.define(version: 2021_11_09_210319) do
 
   create_table "bands", force: :cascade do |t|
     t.string "name", null: false
-    t.string "genre", null: false
     t.text "biography"
-    t.string "image", default: "https://swimg.com/wp-content/uploads/not-available.jpg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
