@@ -7,6 +7,7 @@ class BandsController < ApplicationController
     @band = Band.new(band_params)
     
     if @band.save
+      flash[:notification]="Band successfully saved"
       redirect_to root_path
     else
       flash.now[:error]=@band.errors.full_messages.to_sentence
