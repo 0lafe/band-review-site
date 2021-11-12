@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import BandsIndexPage from './bands/Index'
+import BandsIndexPage from './Index'
 
 export const App = (props) => {
   return (
