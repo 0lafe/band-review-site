@@ -1,0 +1,15 @@
+<h1>Add A Local Band</h1>
+
+<%= form_for (@band) do |f| %>
+  <div class="field">
+    <%= f.label :name, "Band Name" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :biography %>
+    <%= f.text_area :biography %>
+  </div>
+
+  <%= f.submit "Add Local Band"%>
+<%end%>
