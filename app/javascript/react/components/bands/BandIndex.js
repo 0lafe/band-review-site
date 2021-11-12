@@ -1,5 +1,5 @@
 import React from 'react'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import BandTile from './BandTile'
 
 const BandsIndexPage = (props) => {
@@ -25,10 +25,11 @@ const BandsIndexPage = (props) => {
     )
   })
 
- return(
-   <h1>Hello</h1>
-   
- ) 
+  return(
+    <div>
+      {bandTiles}
+    </div>
+  ) 
 }
 
 export default BandsIndexPage
