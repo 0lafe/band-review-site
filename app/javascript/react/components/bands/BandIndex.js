@@ -24,22 +24,21 @@ const BandsIndexPage = (props) => {
     fetchBands()
   }, [])
 
-  const bandTiles = bands.map((band) => {
+  const bandTiles = bands.map((band) => { 
     return (
-      <BandTile
-        key={band.id}
-        id={band.id}
-        name={band.name}
-        biography={band.biography}
-      />
-    )
+      <div className="cell small-4 band-tile" key={band.id}>
+        <BandTile
+          id={band.id}
+          name={band.name}
+          biography={band.biography}
+        />
+      </div>
+      )
   })
 
   return(
-    <div class="row">
-      <div class="small-4 large-6 columns" >
+    <div className="grid-x grid-margin-x grid-margin-y">
         {bandTiles}
-      </div>
     </div>
   ) 
 }

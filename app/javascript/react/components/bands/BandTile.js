@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom'
 
 const BandTile = (props) => {
   return (
-    <div className='band-tile'>
+    <div>
       <Link to={`/bands/${props.id}`}>
-        <p>{props.name}</p>
+        <p className="band-name-text">{props.name}</p>
       </Link>
-      <hr />
     </div>
   )
 }

@@ -15,7 +15,32 @@
  *= require foundation_and_overrides
 
  */
+body {
+    background-color: rgb(211, 210, 210);
+}
+
+
 
  .field {
      width: 50%;
  }
+
+ .band-tile {
+     background-color: skyblue;
+     text-align: center;
+     border: 3px solid black;
+     border-radius: 10px;
+ }
+
+.menu {
+    background-color: skyblue;
+}
+
+.grid-margin-x {
+    margin: 1px;
+}
+
+.band-name-text {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
