@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 const BandTile = (props) => {
   return (
     <div className='band-tile'>
@@ -10,4 +11,5 @@ const BandTile = (props) => {
     </div>
   )
 }
+
 export default BandTile

@@ -10,6 +10,7 @@ const BandsIndexPage = (props) => {
     const parsedBandsArray = await response.json()
     setBands(parsedBandsArray)
   }
+  
   useEffect(() => {
     fetchBands()
   }, [])
