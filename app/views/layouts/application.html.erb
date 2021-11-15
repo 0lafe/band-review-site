@@ -8,10 +8,10 @@
 </head>
 <body>
   
-   <div class="top-bar">
-      <div class="top-bar-left">
-       <!-- <ul class="menu"> -->
-          <span class="menu-text"><%= link_to 'Bands', root_path %></span>
+   <div class="nav-bar">
+      
+
+          <span class="top-bar-left"> <%= link_to  'Bands', root_path %></span>
         <!-- </ul> -->
         <div class="top-bar-right">
           <% if signed_in? %>
@@ -19,12 +19,12 @@
               <span><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></span>
             <!-- </ul> -->
           <% else %>
-            <!-- <ul class="menu"> -->
-              <span><%= link_to "Sign In", new_user_session_path %></span>
-              <span><%= link_to "Sign Up", new_user_registration_path %></span>
-            </ul>
+
+              <span class="nav-text"><%= link_to "Sign In", new_user_session_path %></span>
+              <span class="nav-text"><%= link_to "Sign Up", new_user_registration_path %></span>
+             </ul> 
           <% end %>
-        </div>
+        
       </div>
     </div>
 
