@@ -12,10 +12,8 @@ describe Api::V1::BandsController, type: :controller do
             expect(response.status).to eq 200
             expect(response.content_type).to eq("application/json; charset=utf-8")
             
-            binding.pry
-            
             expect(returned_json.length).to eq(1)
-            returned_json.first["name"] = band.name
+            expect(returned_json.first["name"]).to eq(band.name)
         end
     end
 
