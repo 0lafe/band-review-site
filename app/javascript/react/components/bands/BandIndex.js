@@ -28,9 +28,8 @@ const BandsIndexPage = (props) => {
     return (
       <div className="cell small-4 band-tile" key={band.id}>
         <BandTile
-          id={band.id}
-          name={band.name}
-          biography={band.biography}
+          key={band.id}
+          band={band}
         />
       </div>
       )
