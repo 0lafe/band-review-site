@@ -4,4 +4,8 @@ class Api::V1::BandsController < ApplicationController
     render json: Band.all
   end
   
+  def show
+    render json: Band.find(params[:id])
+  end
+
 end
