@@ -15,54 +15,7 @@
  *= require foundation_and_overrides
 
  */
-body {
-    background-color: rgb(211, 210, 210);
-}
-
-.nav-bar{
-    display: flex;
-    align-content:center;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: skyblue;
-}
-.top-bar-left{
-    font-size: 3rem;
-    padding-top: 0%;
-
-}
-.nav-text{
-    font-size: 1.3rem;
-
-    margin-top: 20px;
-    border: 1px solid rgb(45, 46, 46);
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    padding: 5px 5px;
-
-}
-.top-bar-right{
-    margin-top: 20px;
-    padding: 0 10px;
-}
- .field {
-     width: 50%;
- }
-
- .band-tile {
-     background-color: skyblue;
-     text-align: center;
-     border: 3px solid black;
-     border-radius: 10px;
-     
- }
 
 
-.grid-margin-x {
-    margin: 1px;
-}
 
-.band-name-text {
-    font-size: 30px;
-    margin-bottom: 0px;
-}
+
