@@ -18,6 +18,8 @@ class BandsController < ApplicationController
   private 
 
   def band_params
-    params[:band].permit(:name, :biography)
+    params[:band].permit(:name, :biography, :image)
   end
+
+
 end
