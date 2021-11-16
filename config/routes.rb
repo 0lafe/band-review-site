@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'homes#index'
 
   get "/bands", to: "homes#index"
+  get "/bands/show/:id", to: "homes#index"
 
   namespace :api do
     namespace :v1 do
