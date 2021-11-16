@@ -6,8 +6,8 @@ const BandShow = (props) => {
       <div className="cell small-6">
         <h1>{props.band}</h1>
       </div>
-      <div class="card-divider">
-        <p class="card-section">{props.biography}</p>
+      <div className="card-divider">
+        <p className="card-section">{props.biography}</p>
       </div>
     </div>
   )
