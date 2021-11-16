@@ -8,9 +8,10 @@
 User.all.delete_all
 Band.all.delete_all
 
-User.create(email: "admin@mail.com", password: "password", username: "admin", first_name: "admin")
+user_1 = User.create(email: "admin@mail.com", password: "password", username: "admin", first_name: "admin")
 
-Band.create(name: "Mindwalk Blvd", biography: "An amazing band Justin knows")
-Band.create(name: "Blindchalk Street", biography: "Justin parody band")
+band_1 = Band.create(name: "Mindwalk Blvd", biography: "An amazing band Justin knows")
+band_2 = Band.create(name: "Blindchalk Street", biography: "Justin parody band")
 Band.create(name: "Tame Impala", biography: "Trippy Australians")
 Band.create(name: "No Doubt", biography: "Gwen Stefani and the Californians")
+review_1 = Review.create(rating: 5, body: "Cool songs", user: user_1, band: band_1)
