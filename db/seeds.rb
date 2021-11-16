@@ -7,5 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.all.delete_all
 Band.all.delete_all
+
 User.create(email: "admin@mail.com", password: "password", username: "admin", first_name: "admin")
+
 Band.create(name: "Mindwalk Blvd", biography: "An amazing band Justin knows")
+Band.create(name: "Blindchalk Street", biography: "Justin parody band")
+Band.create(name: "Tame Impala", biography: "Trippy Australians")
+Band.create(name: "No Doubt", biography: "Gwen Stefani and the Californians")
