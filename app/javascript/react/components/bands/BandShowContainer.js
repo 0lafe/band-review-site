@@ -7,9 +7,18 @@ const BandShowContainer = (props) => {
   const bandId = props.match.params.id
 
   const fetchOneBand = async () => {
-    const response = await fetch(`/api/v1/bands/${bandId}`)
-    const parsedSingleBandObject = await response.json()
+    try{
+      const response = await fetch(`/api/v1/bands/${bandId}`)
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw(error)
+      }
+      const parsedSingleBandObject = await response.json()
     setBand(parsedSingleBandObject)
+    } catch(err) {
+      console.error(`Error in fetch: ${err.message}`)
+    }
   }
 
   useEffect(() => {
@@ -23,7 +32,6 @@ const BandShowContainer = (props) => {
       biography={band.biography}
     />
   )
-
 }
 
 export default BandShowContainer
