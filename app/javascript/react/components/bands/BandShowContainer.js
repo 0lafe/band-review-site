@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BandShow from './BandShow.js'
+import ReviewForm from './ReviewsForm.js'
 
 const BandShowContainer = (props) => {
   const [band, setBand] = useState({})
@@ -25,12 +26,40 @@ const BandShowContainer = (props) => {
     fetchOneBand()
   }, [])
 
+  const addNewReview = async (formPayload) => {
+    try {
+      const response = await fetch("/api/v1/reviews", {
+        method:"POST",
+        headers:{
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formPayload)
+      })
+      if (!response.ok) {
+        const errorMessage = `${response.status} ${response.statusText}`
+        throw(new Error(errorMessage))
+      }
+      const newReview = await response.json()
+      setReviews([
+        ...reviews,
+        newReview
+      ])
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
   return (
-    <BandShow
+   <div> 
+     <BandShow
       id={band.id}
       band={band.name}
       biography={band.biography}
     />
+     <ReviewForm
+      addNewReview = {addNewReview}
+      />
+    </div>
   )
 }
 
