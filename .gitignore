@@ -28,3 +28,4 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+/public/uploads
