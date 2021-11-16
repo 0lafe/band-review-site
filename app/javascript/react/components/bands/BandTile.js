@@ -5,7 +5,7 @@ const BandTile = (props) => {
   const {band} = props
   return (
     <div>
-      <Link to={`/bands/${band.id}`}>
+      <Link to={`/bands/show/${band.id}`}>
         <p className="band-name-text">{band.name}</p>
       </Link>
     </div>
