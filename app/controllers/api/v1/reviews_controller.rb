@@ -5,12 +5,13 @@ class Api::V1::ReviewsController < ApplicationController
     end
 
     def create
-        binding.pry
         review = Review.new(review_params)
+        review.user = current_user
         if review.save
-            puts "-------------------------- YES! ------------------------"
+            render json: review
         else
-            puts "-------------------------- NO! ------------------------"
+            flash[:errors] = review.errors.full_messages.to_sentence
+            render json: review
         end
     end
 

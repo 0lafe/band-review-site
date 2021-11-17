@@ -4,14 +4,13 @@ import ReviewForm from './ReviewsForm.js'
 
 const BandShowContainer = (props) => {
   const [band, setBand] = useState({})
+  const [reviews, setReviews] = useState([])
   const bandId = props.match.params.id
   const[formData, setFormData] = useState({
     rating: "",
     body:"",
     band_id:bandId
   })
-
-  
 
   const fetchOneBand = async () => {
     try{
@@ -37,8 +36,10 @@ const BandShowContainer = (props) => {
       const response = await fetch("/api/v1/reviews", {
         method:"POST",
         headers:{
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
+        credentials:"same-origin",
         body: JSON.stringify(formPayload)
       })
       if (!response.ok) {
@@ -50,6 +51,11 @@ const BandShowContainer = (props) => {
         ...reviews,
         newReview
       ])
+      setFormData({
+        rating: "",
+        body:"",
+        band_id:bandId
+      })
     } catch(err) {
       console.log(err)
     }
