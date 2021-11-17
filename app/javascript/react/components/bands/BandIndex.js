@@ -14,7 +14,7 @@ const BandsIndexPage = (props) => {
         throw(error)
       }
       const parsedBandsArray = await response.json()
-      setBands(parsedBandsArray)
+      setBands(parsedBandsArray.bands)
     } catch(err) {
       console.error(`Error in fetch: ${err.message}`)
     }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import BandShow from './BandShow.js'
 import ReviewForm from './ReviewsForm.js'
+import ReviewTiles from './ReviewTiles.js'
 
 const BandShowContainer = (props) => {
   const [band, setBand] = useState({})
@@ -21,8 +22,11 @@ const BandShowContainer = (props) => {
         throw(error)
       }
       const parsedSingleBandObject = await response.json()
-    setBand(parsedSingleBandObject)
+
+    setBand(parsedSingleBandObject.band)
+    setReviews(parsedSingleBandObject.band.reviews)
     } catch(err) {
+
       console.error(`Error in fetch: ${err.message}`)
     }
   }
@@ -49,7 +53,7 @@ const BandShowContainer = (props) => {
       const newReview = await response.json()
       setReviews([
         ...reviews,
-        newReview
+        newReview.review
       ])
       setFormData({
         rating: "",
@@ -61,18 +65,24 @@ const BandShowContainer = (props) => {
     }
   }
 
+  const reviewTiles = reviews.map((review) => {
+    return(
+      <ReviewTiles
+        review = {review}/>
+    ) 
+  })
+
   return (
-   <div> 
-     <BandShow
-      id={band.id}
-      band={band.name}
-      biography={band.biography}
+    <div> 
+    <BandShow
+        band={band}
     />
-     <ReviewForm
+    <ReviewForm
       addNewReview = {addNewReview}
       formData = {formData}
       setFormData = {setFormData}
-      />
+    />
+      {reviewTiles}
     </div>
   )
 }
