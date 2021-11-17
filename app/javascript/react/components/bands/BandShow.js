@@ -9,6 +9,7 @@ const BandShow = (props) => {
       <div className="card-divider">
         <p className="card-section">{props.biography}</p>
       </div>
+      <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
     </div>
   )
 }

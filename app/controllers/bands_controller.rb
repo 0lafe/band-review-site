@@ -15,6 +15,33 @@ class BandsController < ApplicationController
     end
   end
 
+  def edit
+    @band = Band.find(params[:id])
+  end
+
+  def update
+    @band = Band.find(params[:id])
+
+    if @band.update(band_params)
+      flash[:notification] = "Changes have been made"
+      redirect_to root_path
+    else
+      flash.now[:error] = @band.errors.full_messages.to_sentence
+      render :edit
+    end
+  end
+
+  def destroy
+    @band = Band.find(params[:id])
+
+    if @band.destroy
+      flash.now[:notification] = "Band has been deleted"
+      redirect_to root_path
+    end
+    
+  end
+
+
   private 
 
   def band_params

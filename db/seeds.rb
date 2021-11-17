@@ -10,7 +10,7 @@ Band.all.delete_all
 
 User.create(email: "admin@mail.com", password: "password", username: "admin", first_name: "admin")
 
-Band.create(name: "Mindwalk Blvd", biography: "An amazing band Justin knows")
+Band.create(name: "Mindwalk Blvd", biography: "An amazing band Justin knows", image: "https://scontent-bos3-1.xx.fbcdn.net/v/t1.6435-9/67282383_2306184666095267_3885220926266015744_n.png?_nc_cat=100&ccb=1-5&_nc_sid=973b4a&_nc_ohc=mPbyGcNVBBsAX8ONX2O&_nc_ht=scontent-bos3-1.xx&oh=31a886547571928dccee43d1be9383f7&oe=61BAA6C6")
 Band.create(name: "Blindchalk Street", biography: "Justin parody band")
 Band.create(name: "Tame Impala", biography: "Trippy Australians")
 Band.create(name: "No Doubt", biography: "Gwen Stefani and the Californians")
