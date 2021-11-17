@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
 const ReviewForm = (props) => {
-  const[formData, setFormData] = useState({
-    rating: "",
-    body:""
-  })
+  const { formData, setFormData } = props
 
   const handleChange = (event) => {
     event.preventDefault()

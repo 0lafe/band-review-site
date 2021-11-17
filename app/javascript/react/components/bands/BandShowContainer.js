@@ -4,8 +4,14 @@ import ReviewForm from './ReviewsForm.js'
 
 const BandShowContainer = (props) => {
   const [band, setBand] = useState({})
-
   const bandId = props.match.params.id
+  const[formData, setFormData] = useState({
+    rating: "",
+    body:"",
+    band_id:bandId
+  })
+
+  
 
   const fetchOneBand = async () => {
     try{
@@ -58,6 +64,8 @@ const BandShowContainer = (props) => {
     />
      <ReviewForm
       addNewReview = {addNewReview}
+      formData = {formData}
+      setFormData = {setFormData}
       />
     </div>
   )

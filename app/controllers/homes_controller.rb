@@ -1,6 +1,20 @@
 class HomesController < ApplicationController
-  # feel free to replace this controller
 
   def index
   end
+
+  def authenticated
+
+  end
+
+  def authorized
+
+  end
+
+  protected
+
+  def authorize_user
+
+  end
+  
 end
