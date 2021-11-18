@@ -26,8 +26,8 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
 
     if @band.update(band_params)
-      flash[:notification] = "Changes have been made"
-      redirect_to "/bands/show/#{params[:id]}"
+      flash[:notification] = "Band updated"
+      redirect_to "/bands/#{params[:id]}"
     else
       flash.now[:error] = @band.errors.full_messages.to_sentence
       render :edit
