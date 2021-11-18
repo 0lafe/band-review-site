@@ -1,4 +1,4 @@
-<h1>Add A Local Band</h1>
+<h1>Update <%= @band.name %> </h1>
 
 <%= form_for (@band) do |f| %>
   <div class="field">
@@ -16,5 +16,8 @@
     <%= f.file_field :image%>
   </div>
 
-  <%= f.submit "Add Local Band"%>
+  <div class="update-band-form">
+    <%= f.submit "Make Changes"%>
+  </div>
 <%end%>
+<%=button_to "Delete Band", @band, method: :delete, data: { confirm: "Are you sure?" } %>

@@ -1,1 +1,1 @@
-A Band review website
+A website for reviewing local less known bands

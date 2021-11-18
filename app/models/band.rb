@@ -3,4 +3,5 @@ class Band < ApplicationRecord
 
     has_many :reviews
        
+    mount_uploader :image, BandProfilePhotoUploader
 end

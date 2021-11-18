@@ -4,6 +4,11 @@ const BandShow = (props) => {
 
   const {band} = props
 
+  let editElement
+    if (props.user.role === "admin") {
+      editElement = <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
+    } 
+
   return (
     <div className="callout primary">
       <div className="cell small-6">
@@ -12,6 +17,7 @@ const BandShow = (props) => {
       <div className="card-divider">
         <p className="card-section">{band.biography}</p>
       </div>
+      {editElement}
     </div>
   )
 }
