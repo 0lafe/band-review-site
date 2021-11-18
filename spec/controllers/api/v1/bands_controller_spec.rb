@@ -38,6 +38,8 @@ describe Api::V1::BandsController, type: :controller do
 
             expect(returned_json["band"]["reviews"].first["rating"]).to eq(review.rating)
             expect(returned_json["band"]["reviews"].first["body"]).to eq(review.body)
+
+            expect(returned_json["band"]["reviews"].first["user"]["username"]).to eq(user.username)
         end
     end
 end

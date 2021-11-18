@@ -84,7 +84,7 @@ const BandShowContainer = (props) => {
         formData = {formData}
         setFormData = {setFormData}
       />
-        <div className="grid-x grid-margin-x grid-margin-y">
+        <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
           {reviewTiles}
         </div>
     </div>
