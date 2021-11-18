@@ -1,33 +1,24 @@
-# require "rails_helper"
+require "rails_helper"
 
-# describe Api::V1::BandsController, type: :controller do
-#     let!(:band) { Band.create(name: "test_band", biography: "test_band_time") }
+describe Api::V1::ReviewsController, type: :controller do
+    let!(:band) { Band.create(name: "test_band", biography: "test_band_time") }
+    let!(:user) { User.create(email: "admin@mail.com", password: "password", username: "admin", first_name: "admin")}
+    let!(:review) { Review.create(rating: 5, body: "Cool songs", user: user, band: band) }
 
-#     describe "GET#index" do
-#         it "should return all bands" do
+    describe "GET#create" do
+        it "should be able to add a review" do
 
-#             get :index
-#             returned_json = JSON.parse(response.body)
-    
-#             expect(response.status).to eq 200
-#             expect(response.content_type).to eq("application/json; charset=utf-8")
+            sign_in user
+            get :create, params: {review: {rating: review.rating, body: review.body, band_id: band.id}}
+            returned_json = JSON.parse(response.body)
 
-#             expect(returned_json.length).to eq(1)
-#             expect(returned_json.first["name"]).to eq(band.name)
-#         end
-#     end
+            expect(response.status).to eq 200
+            expect(response.content_type).to eq("application/json; charset=utf-8")
 
-#     describe "GET#show" do
-#         it "should return one band" do
+            expect(returned_json["review"]["body"]).to eq(review.body)
+            expect(returned_json["review"]["band"]["name"]).to eq(band["name"])
+            expect(returned_json["review"]["user"]["username"]).to eq(user["username"])
+        end
+    end
 
-#             get :show, params: {id: band.id}
-#             returned_json = JSON.parse(response.body)
-
-#             expect(response.status).to eq 200
-#             expect(response.content_type).to eq("application/json; charset=utf-8")
-
-#             expect(returned_json["name"]).to eq(band.name)
-#         end
-#     end
-
-# end
+end
