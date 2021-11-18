@@ -5,13 +5,8 @@ import ReviewTiles from './ReviewTiles.js'
 
 const BandShowContainer = (props) => {
   const [band, setBand] = useState({})
-
   const [reviews, setReviews] = useState([])
-
-  
   const [user, setUser] = useState({})
-  
-
   const bandId = props.match.params.id
   const[formData, setFormData] = useState({
     rating: "",
@@ -37,8 +32,24 @@ const BandShowContainer = (props) => {
     }
   }
 
+  const fetchUser = async () => {
+    try{
+      const response = await fetch(`/api/v1/users`)
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw(error)
+      }
+      const parsedUserObject = await response.json()
+      setUser(parsedUserObject.user)
+    } catch(err) {
+      console.error(`Error in fetch: ${err.message}`)
+    }
+  }
+
   useEffect(() => {
     fetchOneBand()
+    fetchUser()
   }, [])
 
   const addNewReview = async (formPayload) => {
@@ -81,33 +92,12 @@ const BandShowContainer = (props) => {
         user = {review.user}/>
     ) 
   })
-
-  
-
-  const fetchUser = async () => {
-    try{
-      const response = await fetch(`/api/v1/users`)
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw(error)
-      }
-      const parsedUserObject = await response.json()
-      setUser(parsedUserObject.user)
-    } catch(err) {
-      console.error(`Error in fetch: ${err.message}`)
-    }
-  }
-
-  useEffect(() => {
-    fetchUser()
-  }, [])
   
   return (
     <div> 
       <BandShow
-          band={band}
-          user={user}
+        band={band}
+        user={user}
       />
       <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
         <ReviewForm
@@ -115,7 +105,6 @@ const BandShowContainer = (props) => {
           formData = {formData}
           setFormData = {setFormData}
         />
-
         {reviewTiles}
       </div>
     </div>
