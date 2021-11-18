@@ -1,4 +1,6 @@
 class BandsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize_user
   def new
     @band = Band.new
   end
@@ -48,5 +50,11 @@ class BandsController < ApplicationController
     params[:band].permit(:name, :biography, :image)
   end
 
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      flash[:notice] = "You do not have access to this page."
+      redirect_to root_path
+    end
+  end
 
 end
