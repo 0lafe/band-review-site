@@ -4,20 +4,9 @@ const ReviewForm = (props) => {
   const { formData, setFormData } = props
 
   const handleChange = (event) => {
-    event.preventDefault()
-    const newValue = event.currentTarget.value
     setFormData({
       ...formData,
-      [event.currentTarget.name]: newValue
-    })
-  }
-
-  const handleButtons = (event) => {
-    event.preventDefault()
-
-    setFormData({
-      ...formData,
-      "rating": parseInt(event.currentTarget.name)
+      [event.currentTarget.name]: event.currentTarget.value
     })
   }
 
@@ -26,8 +15,14 @@ const ReviewForm = (props) => {
   const ratingButtons = (numbers).map(number => {
     return (
       <div key={number}>
-        <input type="radio" name={number} id={number} onChange={handleButtons} value={number}/>
-        <label htmlFor={number}>{number}</label>
+        <input
+          type="radio"
+          name="rating"
+          id={number}
+          onChange={handleChange}
+          value={number}
+        />
+        <label htmlFor="rating">{number}</label>
       </div>
     )
   })
@@ -41,15 +36,17 @@ const ReviewForm = (props) => {
     <form onSubmit={handleSubmit}>
       <label htmlFor="rating">Rating</label>
 
-      {ratingButtons}
+      <div className="review-button">
+        {ratingButtons}
+      </div>
 
       <label htmlFor="body">Review</label>
       <input 
-      type="text"
-      name="body"
-      id="body"
-      onChange={handleChange}
-      value={formData.body}
+        type="text"
+        name="body"
+        id="body"
+        onChange={handleChange}
+        value={formData.body}
       />
       <input type="submit" />
     </form>
