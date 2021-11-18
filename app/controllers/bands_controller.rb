@@ -1,6 +1,7 @@
 class BandsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user
+  
   def new
     @band = Band.new
   end
@@ -42,7 +43,6 @@ class BandsController < ApplicationController
     end
     
   end
-
 
   private 
 

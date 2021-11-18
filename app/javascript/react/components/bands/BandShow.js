@@ -6,6 +6,7 @@ const BandShow = (props) => {
       return <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
     } 
   }
+  
   return (
     <div className="callout primary">
       <div className="cell small-6">

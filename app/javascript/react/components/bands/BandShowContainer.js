@@ -52,7 +52,6 @@ const BandShowContainer = (props) => {
       band={band.name}
       biography={band.biography}
       user={user}
-      // current_user={current_user}
     />
   )
 }
