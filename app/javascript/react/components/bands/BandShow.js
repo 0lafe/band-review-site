@@ -2,12 +2,14 @@ import React from 'react'
 
 const BandShow = (props) => {
 
-  const {band} = props
-
+  const {band, user} = props
   let editElement
-    if (props.user.role === "admin") {
+  
+  if (user.user){
+    if (user.user.role === "admin") {
       editElement = <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
     } 
+  }
 
   return (
     <div className="callout primary">

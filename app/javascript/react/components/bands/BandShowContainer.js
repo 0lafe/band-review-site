@@ -82,21 +82,7 @@ const BandShowContainer = (props) => {
     ) 
   })
 
-  return (
-    <div> 
-      <BandShow
-          band={band}
-      />
-      <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
-        <ReviewForm
-          addNewReview = {addNewReview}
-          formData = {formData}
-          setFormData = {setFormData}
-        />
-
-        {reviewTiles}
-      </div>
-    </div>
+  
 
   const fetchUser = async () => {
     try{
@@ -118,13 +104,21 @@ const BandShowContainer = (props) => {
   }, [])
   
   return (
-    <BandShow
-      id={band.id}
-      band={band.name}
-      biography={band.biography}
-      user={user}
-    />
+    <div> 
+      <BandShow
+          band={band}
+          user={user}
+      />
+      <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
+        <ReviewForm
+          addNewReview = {addNewReview}
+          formData = {formData}
+          setFormData = {setFormData}
+        />
 
+        {reviewTiles}
+      </div>
+    </div>
   )
 }
 
