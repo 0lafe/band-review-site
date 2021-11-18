@@ -81,14 +81,15 @@ const BandShowContainer = (props) => {
       <BandShow
           band={band}
       />
-      <ReviewForm
-        addNewReview = {addNewReview}
-        formData = {formData}
-        setFormData = {setFormData}
-      />
-        <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
-          {reviewTiles}
-        </div>
+      <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
+        <ReviewForm
+          addNewReview = {addNewReview}
+          formData = {formData}
+          setFormData = {setFormData}
+        />
+
+        {reviewTiles}
+      </div>
     </div>
   )
 }

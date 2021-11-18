@@ -33,24 +33,25 @@ const ReviewForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="rating">Rating</label>
+    <div className="cell small-8">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="rating">Rating</label>
 
-      <div className="review-button">
-        {ratingButtons}
-      </div>
+        <div className="review-button">
+          {ratingButtons}
+        </div>
 
-      <label htmlFor="body">Review</label>
-      <input 
-        type="text"
-        name="body"
-        id="body"
-        onChange={handleChange}
-        value={formData.body}
-      />
-      <input type="submit" />
-    </form>
-    
+        <label htmlFor="body">Review</label>
+        <textarea 
+          type="text"
+          name="body"
+          id="body"
+          onChange={handleChange}
+          value={formData.body}
+        />
+        <input type="submit" />
+      </form>
+    </div>
   )
 }
 export default ReviewForm
