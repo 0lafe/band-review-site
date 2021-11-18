@@ -1,12 +1,11 @@
 import React from 'react'
 
 const BandShow = (props) => {
-  let adminLogin = () => {
+  let editElement
     if (props.user.role === "admin") {
-      return <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
+      editElement = <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
     } 
-  }
-  
+
   return (
     <div className="callout primary">
       <div className="cell small-6">
@@ -15,7 +14,7 @@ const BandShow = (props) => {
       <div className="card-divider">
         <p className="card-section">{props.biography}</p>
       </div>
-      {adminLogin()}
+      {editElement}
     </div>
   )
 }

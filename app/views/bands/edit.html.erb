@@ -16,8 +16,8 @@
     <%= f.file_field :image%>
   </div>
 
-  <%= f.submit "Make Changes"%>
+  <div class="update-band-form">
+    <%= f.submit "Make Changes"%>
+  </div>
 <%end%>
-</br>
-</br>
-<%=button_to "Delete Band", @band, :method => :delete, data: { confirm: "You sure?" } %>
+<%=button_to "Delete Band", @band, method: :delete, data: { confirm: "Are you sure?" } %>
