@@ -4,10 +4,10 @@ const BandShow = (props) => {
 
   const {band, user} = props
   let editElement
-  
-  if (user.user){
-    if (user.user.role === "admin") {
-      editElement = <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
+
+  if (user){
+    if (user.role === "admin") {
+      editElement = <span><a href={`/bands/${band.id}/edit`}>Edit</a></span>
     } 
   }
 

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const BandTile = (props) => {
   const {band} = props
   let url
-  if (band.band) {
-    url = band.band.image.url
+  if (band) {
+    url = band.image.url
   }
 
   return (

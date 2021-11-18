@@ -93,7 +93,7 @@ const BandShowContainer = (props) => {
         throw(error)
       }
       const parsedUserObject = await response.json()
-      setUser(parsedUserObject)
+      setUser(parsedUserObject.user)
     } catch(err) {
       console.error(`Error in fetch: ${err.message}`)
     }
