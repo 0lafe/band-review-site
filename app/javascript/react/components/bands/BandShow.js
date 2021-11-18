@@ -2,10 +2,10 @@ import React from 'react'
 
 const BandShow = (props) => {
   let adminLogin = () => {
-    if (current_user.role === "admin") {
+    if (props.user.role === "admin") {
       return <span><a href={`/bands/${props.id}/edit`}>Edit</a></span>
-  } 
-}
+    } 
+  }
   return (
     <div className="callout primary">
       <div className="cell small-6">

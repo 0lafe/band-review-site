@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :bands, only: [:index, :show]
+      resources :users, only: [:index]
     end
   end
   resources :bands, only: [:new, :create, :edit, :update, :destroy]
