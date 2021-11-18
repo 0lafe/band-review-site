@@ -68,21 +68,25 @@ const BandShowContainer = (props) => {
   const reviewTiles = reviews.map((review) => {
     return(
       <ReviewTiles
-        review = {review}/>
+        key={review.id}
+        review = {review}
+        user = {review.user}/>
     ) 
   })
 
   return (
     <div> 
-    <BandShow
-        band={band}
-    />
-    <ReviewForm
-      addNewReview = {addNewReview}
-      formData = {formData}
-      setFormData = {setFormData}
-    />
-      {reviewTiles}
+      <BandShow
+          band={band}
+      />
+      <ReviewForm
+        addNewReview = {addNewReview}
+        formData = {formData}
+        setFormData = {setFormData}
+      />
+        <div className="grid-x grid-margin-x grid-margin-y">
+          {reviewTiles}
+        </div>
     </div>
   )
 }
