@@ -1,9 +1,4 @@
 class Api::V1::ReviewsController < ApplicationController
-
-    def new
-
-    end
-
     def create
         review = Review.new(review_params)
         review.user = current_user
@@ -20,5 +15,4 @@ class Api::V1::ReviewsController < ApplicationController
     def review_params
         params[:review].permit(:rating, :body, :band_id)
     end
-
 end
