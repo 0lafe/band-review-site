@@ -51,10 +51,12 @@ const BandShowContainer = (props) => {
         throw(new Error(errorMessage))
       }
       const newReview = await response.json()
-      setReviews([
-        ...reviews,
-        newReview.review
-      ])
+      if (newReview.review.id) {
+        setReviews([
+          ...reviews,
+          newReview.review
+        ])
+      }
       setFormData({
         rating: "",
         body:"",
