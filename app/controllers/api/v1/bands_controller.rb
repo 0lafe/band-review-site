@@ -4,8 +4,7 @@ class Api::V1::BandsController < ApplicationController
   end
   
   def show
-    render json: Band.find(params[:id])
+    render json: Band.find(params[:id]), include: 'reviews.user'
   end
-  
 
 end

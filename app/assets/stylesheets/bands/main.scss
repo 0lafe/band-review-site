@@ -1,16 +1,60 @@
 
+.band-tile-container {
+    margin: 20px;
+}
 .band-tile {
     background-color: skyblue;
     text-align: center;
     border: 3px solid black;
-    border-radius: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    
 }
 
 .band-name-text {
    font-size: 30px;
    margin-bottom: 0px;
+   position: relative;
 }
 
 .update-band-form {
     margin-bottom: 1rem;
+}
+
+.button {
+    color: blue;
+    border-radius: 50%;
+}
+
+.desc-tab{
+    background-color: red;
+    width: 100%;
+}
+
+.band-head {
+    text-align: center;
+}
+
+.inbox {
+    background-color: white;
+    box-sizing: border-box;
+    margin: 1rem 5rem;
+    padding: 1rem;
+}
+
+.edit-button {
+    color: white;
+    background-color: #1779BA;
+    padding: 12.24px 14.4px;
+    margin: 16px 80px;
+}
+
+.optional {
+    font-size: 1rem;
+    text-align: left;
+}
+
+.login-sign-up{
+    text-align: center;
+    width: 67%;
 }

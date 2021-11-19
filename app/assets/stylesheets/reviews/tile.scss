@@ -1,0 +1,45 @@
+.review-tile{
+    background-color: rgb(250, 251, 252);
+    margin: 1rem 0px;
+    overflow-wrap: break-word;
+}
+
+.review {
+    display: flex;
+    align-content:center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 1rem 0px 1rem;
+}
+
+.review-button {
+    display: flex;
+    align-content:center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 1rem;
+    width: 20%;
+}
+
+.review-description {
+    padding: 0px 1rem 0px 1rem;
+    font-size: 1.6rem;
+}
+
+.admin {
+    color: rgb(247, 46, 46);
+    font-size: 1.2rem;
+}
+
+.user {
+    color: rgb(17, 148, 224);
+    font-size: 1.2rem;
+}
+
+.stars {
+    color: orange;
+}
+
+.ratings {
+    font-size: 1.2rem;
+}

@@ -8,10 +8,12 @@
 User.all.delete_all
 Band.all.delete_all
 
-User.create(email: "admin@mail.com", password: "password", username: "admin", first_name: "admin", role: "admin")
+user_1 = User.create(email: "admin@mail.com", password: "password", username: "admin", first_name: "admin", role: "admin")
 User.create(email: "user@mail.com", password: "123456", username: "user", first_name: "Coffee", role: "member")
 
-Band.create(name: "Mindwalk Blvd", biography: "An amazing band Justin knows", image: "https://scontent-bos3-1.xx.fbcdn.net/v/t1.6435-9/67282383_2306184666095267_3885220926266015744_n.png?_nc_cat=100&ccb=1-5&_nc_sid=973b4a&_nc_ohc=mPbyGcNVBBsAX8ONX2O&_nc_ht=scontent-bos3-1.xx&oh=31a886547571928dccee43d1be9383f7&oe=61BAA6C6")
-Band.create(name: "Blindchalk Street", biography: "Justin parody band")
+band_1 = Band.create(name: "Mindwalk Blvd", biography: "MINDWALK BLVD is a trio from Boston whose music is a mix of progressive metal and progressive rock.The band members are very young,but are very experienced and talented.16 year old Jordan Ferreira(guitars,vocals)has been recording since the age of 5 and touring and perfomring with his father Jorge Ferreira since the age of 12.Mike Avakian(bass,guitar,keyboards,vocals),also 16,has been playing for 10 years and at 14 started attending classes at the Berklee School of Music.Last but not least is 13 year old drum prodigy Tyler Hudson,who has been playing since the age of 3 and performing since the age of 5,and who is currently studying under Mike Mangini")
+band_2 = Band.create(name: "Blindchalk Street", biography: "Justin parody band")
+
 Band.create(name: "Tame Impala", biography: "Trippy Australians")
 Band.create(name: "No Doubt", biography: "Gwen Stefani and the Californians")
+review_1 = Review.create(rating: 5, body: "Cool songs", user: user_1, band: band_1)
