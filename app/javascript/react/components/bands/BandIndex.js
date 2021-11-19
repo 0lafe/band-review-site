@@ -36,8 +36,10 @@ const BandsIndexPage = (props) => {
   })
 
   return(
-    <div className="grid-x grid-margin-x grid-margin-y">
-        {bandTiles}
+    <div className="band-tile-container">
+      <div className="grid-x grid-margin-x grid-margin-y">
+          {bandTiles}
+      </div>
     </div>
   ) 
 }

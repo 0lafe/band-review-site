@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import BandShow from './BandShow.js'
 import ReviewForm from './ReviewsForm.js'
 import ReviewTiles from './ReviewTiles.js'
@@ -93,6 +93,17 @@ const BandShowContainer = (props) => {
     ) 
   })
   
+  let createReviews
+  if (user.role) {
+    createReviews = (
+      <ReviewForm 
+        addNewReview = {addNewReview} 
+        formData = {formData} 
+        setFormData = {setFormData} 
+      />
+    )
+  }
+
   return (
     <div> 
       <BandShow
@@ -100,11 +111,7 @@ const BandShowContainer = (props) => {
         user={user}
       />
       <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
-        <ReviewForm
-          addNewReview = {addNewReview}
-          formData = {formData}
-          setFormData = {setFormData}
-        />
+        {createReviews}
         {reviewTiles}
       </div>
     </div>
