@@ -1,7 +1,7 @@
-<h1>Add A Local Band</h1>
+<h1 class="field">Add A Local Band</h1>
 
 <%= form_for (@band) do |f| %>
-  <div class="field">
+  <div class="field ">
     <%= f.label :name, "Band Name" %>
     <%= f.text_field :name %>
   </div>
@@ -11,10 +11,10 @@
     <%= f.text_area :biography %>
   </div>
 
-  <div>
-    <h3>(Optional): Upload Band Profile Image</h3>
+  <div class="field">
+    <h3 class="optional">(Optional): Upload Band Image</h3>
     <%= f.file_field :image%>
   </div>
 
-  <%= f.submit "Add Local Band"%>
+  <%= f.submit "Add Local Band", class: " add-button"%>
 <%end%>

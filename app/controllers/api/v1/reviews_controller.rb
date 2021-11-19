@@ -5,14 +5,13 @@ class Api::V1::ReviewsController < ApplicationController
         if review.save
             render json: review
         else
-            flash[:errors] = review.errors.full_messages.to_sentence
-            render json: review
+            render json: {errors: review.errors.full_messages.to_sentence}
         end
     end
 
     private
 
     def review_params
-        params[:review].permit(:rating, :body, :band_id)
+        params.require(:review).permit(:rating, :body, :band_id)
     end
 end

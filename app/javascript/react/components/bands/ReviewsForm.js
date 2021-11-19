@@ -22,7 +22,7 @@ const ReviewForm = (props) => {
           onChange={handleChange}
           value={number}
         />
-        <label htmlFor="rating">{number}</label>
+        <label htmlFor="rating" className="ratings">{number}</label>
       </div>
     )
   })
@@ -35,13 +35,13 @@ const ReviewForm = (props) => {
   return (
     <div className="cell small-8">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="rating">Rating</label>
+        <label htmlFor="rating" className="ratings">Rating</label>
 
         <div className="review-button">
           {ratingButtons}
         </div>
 
-        <label htmlFor="body">Review</label>
+        <label htmlFor="body" className="ratings">Review</label>
         <textarea 
           type="text"
           name="body"
@@ -49,7 +49,9 @@ const ReviewForm = (props) => {
           onChange={handleChange}
           value={formData.body}
         />
-        <input type="submit" />
+        <input 
+        className="button"
+        type="submit" />
       </form>
     </div>
   )

@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useState, useEffect } from 'react'
+import helperFetch from '../helpers/Fetcher.js'
 import BandShow from './BandShow.js'
 import ReviewForm from './ReviewsForm.js'
 import ReviewTiles from './ReviewTiles.js'
@@ -10,46 +11,18 @@ const BandShowContainer = (props) => {
   const bandId = props.match.params.id
   const[formData, setFormData] = useState({
     rating: "",
-    body:"",
-    band_id:bandId
+    body: "",
+    band_id: bandId
   })
 
-  const fetchOneBand = async () => {
-    try{
-      const response = await fetch(`/api/v1/bands/${bandId}`)
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw(error)
-      }
-      const parsedSingleBandObject = await response.json()
-
-    setBand(parsedSingleBandObject.band)
-    setReviews(parsedSingleBandObject.band.reviews)
-    } catch(err) {
-
-      console.error(`Error in fetch: ${err.message}`)
-    }
-  }
-
-  const fetchUser = async () => {
-    try{
-      const response = await fetch(`/api/v1/users`)
-      if (!response.ok) {
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw(error)
-      }
-      const parsedUserObject = await response.json()
-      setUser(parsedUserObject.user)
-    } catch(err) {
-      console.error(`Error in fetch: ${err.message}`)
-    }
-  }
-
   useEffect(() => {
-    fetchOneBand()
-    fetchUser()
+    helperFetch(`/api/v1/bands/${bandId}`).then(bandData => {
+      setBand(bandData.band)
+      setReviews(bandData.band.reviews)
+    })
+    helperFetch('/api/v1/users').then(userData => {
+      setUser(userData.user)
+    })
   }, [])
 
   const addNewReview = async (formPayload) => {
@@ -68,7 +41,9 @@ const BandShowContainer = (props) => {
         throw(new Error(errorMessage))
       }
       const newReview = await response.json()
-      if (newReview.review.id) {
+      if (newReview.errors) {
+        alert(newReview.errors)
+      } else {
         setReviews([
           ...reviews,
           newReview.review
@@ -76,8 +51,7 @@ const BandShowContainer = (props) => {
       }
       setFormData({
         rating: "",
-        body:"",
-        band_id:bandId
+        body: ""
       })
     } catch(err) {
       console.log(err)
@@ -88,8 +62,8 @@ const BandShowContainer = (props) => {
     return(
       <ReviewTiles
         key={review.id}
-        review = {review}
-        user = {review.user}/>
+        review={review}
+        user={review.user}/>
     ) 
   })
   
@@ -97,9 +71,9 @@ const BandShowContainer = (props) => {
   if (user.role) {
     createReviews = (
       <ReviewForm 
-        addNewReview = {addNewReview} 
-        formData = {formData} 
-        setFormData = {setFormData} 
+        addNewReview={addNewReview} 
+        formData={formData} 
+        setFormData={setFormData} 
       />
     )
   }

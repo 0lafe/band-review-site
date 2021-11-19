@@ -16,8 +16,7 @@ describe Api::V1::ReviewsController, type: :controller do
             expect(response.content_type).to eq("application/json; charset=utf-8")
 
             expect(returned_json["review"]["body"]).to eq(review.body)
-            expect(returned_json["review"]["band"]["name"]).to eq(band["name"])
-            expect(returned_json["review"]["user"]["username"]).to eq(user["username"])
+            expect(returned_json["review"]["user"]["username"]).to eq(user.username)
         end
     end
 
