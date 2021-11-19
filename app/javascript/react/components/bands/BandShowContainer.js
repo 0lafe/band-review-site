@@ -21,7 +21,9 @@ const BandShowContainer = (props) => {
       setReviews(bandData.band.reviews)
     })
     helperFetch('/api/v1/users').then(userData => {
-      setUser(userData.user)
+      if (userData) {
+        setUser(userData.user)
+      }
     })
   }, [])
 
