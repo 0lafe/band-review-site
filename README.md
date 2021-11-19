@@ -6,7 +6,7 @@ This website allows users to add reviews for local bands.
 Users can also view reviews from other users.
 
 ## Dependencies
-ruby version 3.0.2
+ruby version 3.0.2 <br>
 gem install rails
 
 ## Installation
