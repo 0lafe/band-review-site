@@ -67,6 +67,17 @@ const BandShowContainer = (props) => {
     ) 
   })
   
+  let createReviews
+  if (user.role) {
+    createReviews = (
+      <ReviewForm 
+        addNewReview={addNewReview} 
+        formData={formData} 
+        setFormData={setFormData} 
+      />
+    )
+  }
+
   return (
     <div> 
       <BandShow
@@ -74,11 +85,7 @@ const BandShowContainer = (props) => {
         user={user}
       />
       <div className="grid-x grid-margin-x grid-margin-y align-center-middle">
-        <ReviewForm
-          addNewReview={addNewReview}
-          formData={formData}
-          setFormData={setFormData}
-        />
+        {createReviews}
         {reviewTiles}
       </div>
     </div>
