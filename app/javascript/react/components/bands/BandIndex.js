@@ -26,7 +26,7 @@ const BandsIndexPage = (props) => {
 
   const bandTiles = bands.map((band) => { 
     return (
-      <div className="cell small-4 band-tile" key={band.id}>
+      <div className="band-tile cell small-4" key={band.id}>
         <BandTile
           key={band.id}
           band={band}
@@ -36,7 +36,7 @@ const BandsIndexPage = (props) => {
   })
 
   return(
-    <div className="grid-x grid-margin-x grid-margin-y">
+    <div className="grid-x grid-margin-x grid-margin-10 space">
         {bandTiles}
     </div>
   ) 

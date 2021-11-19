@@ -7,17 +7,17 @@ const BandShow = (props) => {
 
   if (user){
     if (user.role === "admin") {
-      editElement = <span><a href={`/bands/${band.id}/edit`}>Edit</a></span>
+      editElement = <span ><a className="edit-button" href={`/bands/${band.id}/edit`}>Edit</a></span>
     } 
   }
 
   return (
     <div className="callout primary">
       <div className="cell small-6">
-        <h1>{band.name}</h1>
+        <h1 className="band-head">{band.name}</h1>
       </div>
-      <div className="card-divider">
-        <p className="card-section">{band.biography}</p>
+      <div className="inbox">
+        <p>{band.biography}</p>
       </div>
       {editElement}
     </div>
