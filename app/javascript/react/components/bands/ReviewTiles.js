@@ -4,10 +4,10 @@ const ReviewTiles = (props) => {
   const { review, user } = props
   const formattedRating = `${"★".repeat(review.rating)}${"☆".repeat(5-review.rating)}`
 
-  let text = "USER"
+  let text = "user"
 
   if (user.role == "admin"){
-    text = "ADMIN"
+    text = "admin"
   }
 
   return (

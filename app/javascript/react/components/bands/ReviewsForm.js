@@ -50,7 +50,7 @@ const ReviewForm = (props) => {
           value={formData.body}
         />
         <input 
-        className ="button"
+        className="button"
         type="submit" />
       </form>
     </div>
