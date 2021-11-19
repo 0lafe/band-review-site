@@ -53,7 +53,8 @@ const BandShowContainer = (props) => {
       }
       setFormData({
         rating: "",
-        body: ""
+        body: "",
+        band_id: bandId
       })
     } catch(err) {
       console.log(err)

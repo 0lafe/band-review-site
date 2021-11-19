@@ -1,23 +1,27 @@
-<h1>Update <%= @band.name %> </h1>
+<div class="edit-div">
+  <h1>Update <%= @band.name %> </h1>
 
-<%= form_for (@band) do |f| %>
+  <%= form_for (@band) do |f| %>
+    <div>
+      <%= f.label :name, "Band Name" %>
+      <%= f.text_field :name %>
+    </div>
+    
+    <div>
+      <%= f.label :biography %>
+      <%= f.text_area :biography %>
+    </div>
+
+    <div>
+      <h3 class="optional">(Optional): Upload Band Profile Image</h3>
+      <%= f.file_field :image%>
+    </div>
+
+    <div class="update-band-form field">
+      <%= f.submit "Make Changes", class:"button"%>
+    </div>
+  <%end%>
   <div class="field">
-    <%= f.label :name, "Band Name" %>
-    <%= f.text_field :name %>
+    <%=button_to "Delete Band", @band, method: :delete, data: { confirm: "Are you sure?" }, class:"button" %>
   </div>
-  
-  <div class="field">
-    <%= f.label :biography %>
-    <%= f.text_area :biography %>
-  </div>
-
-  <div>
-    <h3>(Optional): Upload Band Profile Image</h3>
-    <%= f.file_field :image%>
-  </div>
-
-  <div class="update-band-form">
-    <%= f.submit "Make Changes"%>
-  </div>
-<%end%>
-<%=button_to "Delete Band", @band, method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
