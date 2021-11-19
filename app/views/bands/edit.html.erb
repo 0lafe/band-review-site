@@ -13,13 +13,15 @@
     </div>
 
     <div>
-      <h3>(Optional): Upload Band Profile Image</h3>
+      <h3 class="optional">(Optional): Upload Band Profile Image</h3>
       <%= f.file_field :image%>
     </div>
 
-    <div class="update-band-form">
-      <%= f.submit "Make Changes"%>
+    <div class="update-band-form field">
+      <%= f.submit "Make Changes", class:"button"%>
     </div>
   <%end%>
-  <%=button_to "Delete Band", @band, method: :delete, data: { confirm: "Are you sure?" } %>
+  <div class="field">
+    <%=button_to "Delete Band", @band, method: :delete, data: { confirm: "Are you sure?" }, class:"button" %>
+  </div>
 </div>
